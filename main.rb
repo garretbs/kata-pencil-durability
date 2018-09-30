@@ -4,7 +4,7 @@ require_relative 'paper.rb'
 class PencilTest
 
 	def initialize()
-		@pencil = Pencil.new(90)
+		@pencil = Pencil.new(900)
 		@paper = Paper.new()
 	end
 
@@ -32,10 +32,20 @@ class PencilTest
 		@pencil.write("qwertyuiop", @paper)
 		assert(@pencil.durability < initial_durability)
 	end
+	
+	def test_pencil_degradation_unaffected_by_spaces
+		initial_durability = @pencil.durability
+		text = "This has some spaces in it"
+		number_of_whitespace = text.scan(/\s/).count
+		expected_durability = initial_durability - (text.length - number_of_whitespace)
+		@pencil.write(text, @paper)
+		assert(@pencil.durability == expected_durability)
+	end
 end
 
 test = PencilTest.new
 test.test_if_paper_receives_message
 test.test_if_text_is_appended
 test.test_pencil_degradation
+test.test_pencil_degradation_unaffected_by_spaces
 

@@ -6,5 +6,6 @@ class Paper
 	end
 	
 	def add_text(text)
+		@message = text
 	end
 end

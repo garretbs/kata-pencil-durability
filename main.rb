@@ -17,6 +17,7 @@ class PencilTest
 		@pencil.write(message, @paper)
 		assert(@paper.message == message)
 	end
+	
 end
 
 test = PencilTest.new

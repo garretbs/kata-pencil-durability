@@ -7,6 +7,7 @@ class Pencil
 	
 	def write(message, paper)
 		paper.add_text(message)
+		@durability -= message.length
 	end
 	
 	def erase()

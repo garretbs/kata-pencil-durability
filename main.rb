@@ -4,7 +4,7 @@ require_relative 'paper.rb'
 class PencilTest
 
 	def initialize()
-		@pencil = Pencil.new(15)
+		@pencil = Pencil.new(90)
 		@paper = Paper.new()
 	end
 

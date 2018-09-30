@@ -21,7 +21,7 @@ class PencilTest
 	def test_if_text_is_appended
 		text1 = "This is the first message. "
 		text2 = "Second message. "
-		expected_result = @paper.message << text1 << text2
+		expected_result = @paper.message + text1 + text2
 		@pencil.write(text1, @paper)
 		@pencil.write(text2, @paper)
 		assert(@paper.message == expected_result)

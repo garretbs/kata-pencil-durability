@@ -6,6 +6,7 @@ class Pencil
 	end
 	
 	def write(message, paper)
+		paper.add_text(message)
 	end
 	
 	def erase()

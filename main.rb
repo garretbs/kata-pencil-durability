@@ -26,9 +26,16 @@ class PencilTest
 		@pencil.write(text2, @paper)
 		assert(@paper.message == expected_result)
 	end
+	
+	def test_pencil_degradation
+		initial_durability = @pencil.durability
+		@pencil.write("qwertyuiop", @paper)
+		assert(@pencil.durability < initial_durability)
+	end
 end
 
 test = PencilTest.new
 test.test_if_paper_receives_message
 test.test_if_text_is_appended
+test.test_pencil_degradation
 

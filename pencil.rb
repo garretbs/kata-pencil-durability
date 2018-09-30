@@ -1,8 +1,8 @@
 class Pencil
 	attr_reader :durability
 	
-	def initialize()
-		@durability = 0
+	def initialize(durability)
+		@durability = durability
 	end
 	
 	def write(message, paper)

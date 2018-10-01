@@ -85,7 +85,7 @@ class PencilTest
 		paper = Paper.new()
 		text = "UPPERCASESTRINGwithsomelowercase"
 		pencil.write(text, paper)
-		expected_durability = durability - (text.scan(/[A-Z]/).count*2)
+		expected_durability = durability - (text.scan(/[A-Z]/).count*2) - text.scan(/[a-z]/).count
 		assert(pencil.durability == expected_durability)
 	end
 end

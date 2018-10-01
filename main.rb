@@ -59,6 +59,16 @@ class PencilTest
 		expected_message = text[0, durability] + (" " * (text.length-durability))
 		assert(paper.message == expected_message)
 	end
+	
+	def test_whitespace_does_not_degrade
+		durability = 50
+		pencil = Pencil.new(durability)
+		paper = Paper.new()
+		text = "w h i t e s p a c e"
+		pencil.write(text, paper)
+		expected_durability = durability - text.scan(/\S/).count
+		assert(pencil.durability == expected_durability)
+	end
 end
 
 test = PencilTest.new
@@ -67,4 +77,5 @@ test.test_if_text_is_appended
 test.test_pencil_degradation
 test.test_pencil_degradation_unaffected_by_spaces
 test.test_dull_pencil_writes_as_spaces
+test.test_whitespace_does_not_degrade
 

@@ -54,7 +54,7 @@ class PencilTest
 		durability = 50
 		pencil = Pencil.new(durability)
 		paper = Paper.new()
-		text = "this is a bit of text that should run out the durability of the pencil"
+		text = "thisisabitoftextthatshouldrunoutthedurabilityofthepencil"
 		pencil.write(text, paper)
 		expected_message = text[0, durability] + (" " * (text.length-durability))
 		assert(paper.message == expected_message)

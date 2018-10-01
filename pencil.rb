@@ -7,7 +7,7 @@ class Pencil
 	
 	def write(message, paper)
 		paper.add_text(message)
-		@durability -= message.length
+		@durability -= message.scan(/\S/).count
 	end
 	
 	def erase()

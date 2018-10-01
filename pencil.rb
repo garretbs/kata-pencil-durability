@@ -11,7 +11,11 @@ class Pencil
 				paper.add_text(" ")
 			else
 				paper.add_text(character)
-				@durability -= 1 if character =~ /\S/
+				if character =~ /[A-Z]/ #uppercase
+					@durability -= 2
+				else #lowercase, other symbols
+					@durability -= 1
+				end
 			end
 		end
 	end

@@ -51,11 +51,13 @@ class PencilTest
 	end
 	
 	def test_dull_pencil_writes_as_spaces
-		pencil = Pencil.new(50)
+		durability = 50
+		pencil = Pencil.new(durability)
 		paper = Paper.new()
-		text = "This is a bit of text that should run out the pencil's durability. Four score and seven years ago blah blah blah."
+		text = "this is a bit of text that should run out the durability of the pencil"
 		pencil.write(text, paper)
-		assert(pencil.durability == 0)
+		expected_message = text[0, durability] + (" " * (text.length-durability))
+		assert(paper.message == expected_message)
 	end
 end
 

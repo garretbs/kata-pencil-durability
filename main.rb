@@ -78,6 +78,16 @@ class PencilTest
 		expected_durability = durability - (text.scan(/[A-Z]/).count*2)
 		assert(pencil.durability == expected_durability)
 	end
+	
+	def test_uppercase_and_lowercase_degradation
+		durability = 50
+		pencil = Pencil.new(durability)
+		paper = Paper.new()
+		text = "UPPERCASESTRINGwithsomelowercase"
+		pencil.write(text, paper)
+		expected_durability = durability - (text.scan(/[A-Z]/).count*2)
+		assert(pencil.durability == expected_durability)
+	end
 end
 
 test = PencilTest.new
@@ -88,4 +98,5 @@ test.test_pencil_degradation_unaffected_by_spaces
 test.test_dull_pencil_writes_as_spaces
 test.test_whitespace_does_not_degrade
 test.test_uppercase_degradation
+test.test_uppercase_and_lowercase_degradation
 

@@ -6,8 +6,10 @@ class Pencil
 	end
 	
 	def write(message, paper)
-		paper.add_text(message)
-		@durability -= message.scan(/\S/).count
+		message.split("").each do |character|
+			paper.add_text(character)
+			@durability -= 1 if character =~ /\S/
+		end
 	end
 	
 	def erase()

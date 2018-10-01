@@ -13,7 +13,7 @@ class PencilTest
 	end
 	
 	def test_if_paper_receives_message
-		message = "This is a simple message."
+		message = "this is a simple message."
 		pencil = Pencil.new(50)
 		paper = Paper.new()
 		pencil.write(message, paper)
@@ -21,8 +21,8 @@ class PencilTest
 	end
 	
 	def test_if_text_is_appended
-		text1 = "This is the first message. "
-		text2 = "Second message. "
+		text1 = "this is the first message. "
+		text2 = "second message. "
 		pencil = Pencil.new(50)
 		paper = Paper.new()
 		expected_result = paper.message + text1 + text2
@@ -40,12 +40,11 @@ class PencilTest
 	end
 	
 	def test_pencil_degradation_unaffected_by_spaces
+		durability = 50
 		pencil = Pencil.new(50)
 		paper = Paper.new()
-		initial_durability = pencil.durability
-		text = "This has some spaces in it"
-		number_of_whitespace = text.scan(/\s/).count
-		expected_durability = initial_durability - (text.length - number_of_whitespace)
+		text = "this has some spaces in it"
+		expected_durability = durability - text.scan(/\S/).count
 		pencil.write(text, paper)
 		assert(pencil.durability == expected_durability)
 	end

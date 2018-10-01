@@ -13,7 +13,7 @@ class Pencil
 				paper.add_text(character)
 				if character =~ /[A-Z]/ #uppercase
 					@durability -= 2
-				else #lowercase, other symbols
+				elsif character =~ /\S/ #lowercase, other non-whitespace symbols
 					@durability -= 1
 				end
 			end

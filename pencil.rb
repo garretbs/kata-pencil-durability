@@ -2,6 +2,7 @@ class Pencil
 	attr_reader :durability
 	
 	def initialize(durability)
+		@initial_durability = durability
 		@durability = durability
 	end
 	
@@ -24,6 +25,7 @@ class Pencil
 	end
 	
 	def sharpen()
+		@durability = @initial_durability
 	end
 	
 	def edit()

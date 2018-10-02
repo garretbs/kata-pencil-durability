@@ -2,7 +2,7 @@ class Pencil
 	attr_reader :durability
 	attr_reader :length
 	
-	def initialize(durability, length = 1)
+	def initialize(durability, length = 2)
 		@initial_durability = durability
 		@length = length
 		@durability = durability
@@ -27,6 +27,7 @@ class Pencil
 	end
 	
 	def sharpen()
+		return if (@length -= 1) < 1
 		@durability = @initial_durability
 	end
 	

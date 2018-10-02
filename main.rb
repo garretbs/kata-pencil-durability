@@ -98,6 +98,15 @@ class PencilTest
 		pencil.sharpen()
 		assert(pencil.durability == initial_durability)
 	end
+	
+	def test_length_decrement
+		length = 5
+		pencil = Pencil.new(10, length)
+		paper = Paper.new()
+		text = "four"
+		pencil.sharpen()
+		assert(pencil.length == length-1)
+	end
 end
 
 test = PencilTest.new
@@ -110,4 +119,5 @@ test.test_whitespace_does_not_degrade
 test.test_uppercase_degradation
 test.test_uppercase_and_lowercase_degradation
 test.test_sharpen
+test.test_length_decrement
 

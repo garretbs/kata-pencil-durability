@@ -1,8 +1,10 @@
 class Pencil
 	attr_reader :durability
+	attr_reader :length
 	
-	def initialize(durability)
+	def initialize(durability, length = 1)
 		@initial_durability = durability
+		@length = length
 		@durability = durability
 	end
 	

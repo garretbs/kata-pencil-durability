@@ -8,4 +8,8 @@ class Paper
 	def add_text(text)
 		@message <<= text
 	end
+	
+	def erase(text)
+		@message.delete!(text)
+	end
 end

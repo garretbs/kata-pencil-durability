@@ -23,7 +23,8 @@ class Pencil
 		end
 	end
 	
-	def erase()
+	def erase(text, paper)
+		paper.erase(text)
 	end
 	
 	def sharpen()

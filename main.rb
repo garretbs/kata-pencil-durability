@@ -124,7 +124,7 @@ class PencilTest
 		text_to_erase = "to"
 		expected_text_after_erase = "I am going eat"
 		pencil.write(text, paper)
-		pencil.erase()
+		pencil.erase(text_to_erase, paper)
 		assert(paper.message == expected_text_after_erase)
 	end
 end

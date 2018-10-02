@@ -26,7 +26,10 @@ class Pencil
 	end
 	
 	def erase(text, paper)
-		paper.erase(text)
+		amount_to_erase = [@eraser_durability, text.length].min
+		@eraser_durability -= amount_to_erase
+		text_to_erase = text[0, amount_to_erase]
+		paper.erase(text_to_erase)
 	end
 	
 	def sharpen()

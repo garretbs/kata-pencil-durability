@@ -10,6 +10,6 @@ class Paper
 	end
 	
 	def erase(text)
-		@message.delete!(text)
+		@message.gsub!(text, " "*text.length)
 	end
 end

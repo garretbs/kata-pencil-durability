@@ -175,6 +175,18 @@ class PencilTest
 		pencil.erase(text_to_erase, paper)
 		assert(paper.message == expected_text)
 	end
+	
+	def test_whitespace_does_not_degrade_eraser
+		eraser_durability = 3
+		pencil = Pencil.new(50, 5, eraser_durability)
+		paper = Paper.new()
+		text = "I am going to the store to buy something"
+		text_to_erase = "y s"
+		expected_durability = 1
+		pencil.write(text, paper)
+		pencil.erase(text_to_erase, paper)
+		assert(pencil.eraser_durability == expected_durability)
+	end
 end
 
 test = PencilTest.new
@@ -194,4 +206,5 @@ test.test_only_last_occurrence_erased
 test.test_multiple_occurrences_erased
 test.test_eraser_degradation
 test.test_degraded_eraser_does_not_work
+test.test_whitespace_does_not_degrade_eraser
 

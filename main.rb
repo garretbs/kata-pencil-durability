@@ -151,6 +151,18 @@ class PencilTest
 		pencil.erase(text_to_erase, paper)
 		assert(paper.message == expected_text_after_erase)
 	end
+	
+	def test_eraser_degradation
+		eraser_durability = 10
+		pencil = Pencil.new(50, 5, eraser_durability)
+		paper = Paper.new()
+		text = "I am going to the store to buy something"
+		text_to_erase = "something"
+		expected_durability = eraser_durability-text_to_erase.length
+		pencil.write(text, paper)
+		pencil.erase(text_to_erase, paper)
+		assert(pencil.eraser_durability == expected_durability)
+	end
 end
 
 test = PencilTest.new
@@ -168,4 +180,5 @@ test.test_short_pencil_will_not_sharpen
 test.test_last_occurrence_erased
 test.test_only_last_occurrence_erased
 test.test_multiple_occurrences_erased
+test.test_eraser_degradation
 

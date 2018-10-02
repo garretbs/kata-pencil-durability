@@ -1,11 +1,13 @@
 class Pencil
 	attr_reader :durability
 	attr_reader :length
+	attr_reader :eraser_durability
 	
-	def initialize(durability, length = 2)
+	def initialize(durability, length = 2, eraser_durability = 15)
 		@initial_durability = durability
 		@length = length
 		@durability = durability
+		@eraser_durability = eraser_durability
 	end
 	
 	def write(message, paper)

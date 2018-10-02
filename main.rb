@@ -116,6 +116,17 @@ class PencilTest
 		pencil.sharpen()
 		assert(pencil.durability == durability-text.length)
 	end
+	
+	def test_last_occurrence_erased
+		pencil = Pencil.new(50, 5)
+		paper = Paper.new()
+		text = "I am going to eat"
+		text_to_erase = "to"
+		expected_text_after_erase = "I am going eat"
+		pencil.write(text, paper)
+		pencil.erase()
+		assert(paper.message == expected_text_after_erase)
+	end
 end
 
 test = PencilTest.new
@@ -130,4 +141,5 @@ test.test_uppercase_and_lowercase_degradation
 test.test_sharpen
 test.test_length_decrement
 test.test_short_pencil_will_not_sharpen
+test.test_last_occurrence_erased
 

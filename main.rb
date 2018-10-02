@@ -138,6 +138,19 @@ class PencilTest
 		pencil.erase(text_to_erase, paper)
 		assert(paper.message == expected_text_after_erase)
 	end
+	
+	def test_multiple_occurrences_erased
+		pencil = Pencil.new(50, 5)
+		paper = Paper.new()
+		text = "I am going to the store to buy something"
+		text_to_erase = "to"
+		expected_text_after_erase = "I am going    the s  re    buy something"
+		pencil.write(text, paper)
+		pencil.erase(text_to_erase, paper)
+		pencil.erase(text_to_erase, paper)
+		pencil.erase(text_to_erase, paper)
+		assert(paper.message == expected_text_after_erase)
+	end
 end
 
 test = PencilTest.new
@@ -154,4 +167,5 @@ test.test_length_decrement
 test.test_short_pencil_will_not_sharpen
 test.test_last_occurrence_erased
 test.test_only_last_occurrence_erased
+test.test_multiple_occurrences_erased
 

@@ -165,12 +165,12 @@ class PencilTest
 	end
 	
 	def test_degraded_eraser_does_not_work
-		eraser_durability = 6
+		eraser_durability = 3
 		pencil = Pencil.new(50, 5, eraser_durability)
 		paper = Paper.new()
 		text = "I am going to the store to buy something"
 		text_to_erase = "something"
-		expected_text = "I am going to the store to buy someth"
+		expected_text = "I am going to the store to buy someth   "
 		pencil.write(text, paper)
 		pencil.erase(text_to_erase, paper)
 		assert(paper.message == expected_text)

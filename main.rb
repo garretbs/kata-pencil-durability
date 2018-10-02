@@ -88,6 +88,16 @@ class PencilTest
 		expected_durability = durability - (text.scan(/[A-Z]/).count*2) - text.scan(/[a-z]/).count
 		assert(pencil.durability == expected_durability)
 	end
+	
+	def test_sharpen
+		initial_durability = 10
+		pencil = Pencil.new(initial_durability)
+		paper = Paper.new()
+		text = "four"
+		pencil.write(text, paper)
+		pencil.sharpen()
+		assert(pencil.durability == initial_durability)
+	end
 end
 
 test = PencilTest.new
@@ -99,4 +109,5 @@ test.test_dull_pencil_writes_as_spaces
 test.test_whitespace_does_not_degrade
 test.test_uppercase_degradation
 test.test_uppercase_and_lowercase_degradation
+test.test_sharpen
 

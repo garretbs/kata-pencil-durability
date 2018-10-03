@@ -37,6 +37,6 @@ class Pencil
 		@durability = @initial_durability
 	end
 	
-	def edit()
+	def edit(paper, text)
 	end
 end

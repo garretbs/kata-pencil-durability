@@ -187,6 +187,16 @@ class PencilTest
 		pencil.erase(text_to_erase, paper)
 		assert(pencil.eraser_durability == expected_durability)
 	end
+	
+	def test_basic_editing
+		pencil = Pencil.new(50, 5, 5)
+		paper = Paper.new()
+		text = "    "
+		text_to_edit = "meow"
+		pencil.write(text, paper)
+		pencil.edit(text_to_edit, paper)
+		assert(paper.message == text_to_edit)
+	end
 end
 
 test = PencilTest.new
@@ -207,4 +217,5 @@ test.test_multiple_occurrences_erased
 test.test_eraser_degradation
 test.test_degraded_eraser_does_not_work
 test.test_whitespace_does_not_degrade_eraser
+test.test_basic_editing
 

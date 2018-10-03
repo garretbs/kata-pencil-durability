@@ -197,6 +197,18 @@ class PencilTest
 		pencil.erase(text, paper, text_to_edit)
 		assert(paper.message == text_to_edit)
 	end
+	
+	def test_editing_with_not_enough_whitespace
+		pencil = Pencil.new(50, 5, 5)
+		paper = Paper.new()
+		text = "Not much space here"
+		text_to_edit = "verylongedithere"
+		text_to_erase = "Not"
+		expected_message = "very@@@@e@@@@@r@ere"
+		pencil.write(text, paper)
+		pencil.erase(text_to_erase, paper, text_to_edit)
+		assert(paper.message == expected_message)
+	end
 end
 
 test = PencilTest.new
@@ -218,4 +230,5 @@ test.test_eraser_degradation
 test.test_degraded_eraser_does_not_work
 test.test_whitespace_does_not_degrade_eraser
 test.test_basic_editing
+test.test_editing_with_not_enough_whitespace
 

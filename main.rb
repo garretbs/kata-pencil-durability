@@ -209,6 +209,18 @@ class PencilTest
 		pencil.erase(text_to_erase, paper, text_to_edit)
 		assert(paper.message == expected_message)
 	end
+	
+	def test_editing_past_end_of_string
+		pencil = Pencil.new(50, 5, 5)
+		paper = Paper.new()
+		text = "Not much space here"
+		text_to_edit = "longstring"
+		text_to_erase = "here"
+		expected_message = "Not much space long"
+		pencil.write(text, paper)
+		pencil.erase(text_to_erase, paper, text_to_edit)
+		assert(paper.message == expected_message)
+	end
 end
 
 test = PencilTest.new
@@ -231,4 +243,5 @@ test.test_degraded_eraser_does_not_work
 test.test_whitespace_does_not_degrade_eraser
 test.test_basic_editing
 test.test_editing_with_not_enough_whitespace
+test.test_editing_past_end_of_string
 

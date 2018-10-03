@@ -191,10 +191,10 @@ class PencilTest
 	def test_basic_editing
 		pencil = Pencil.new(50, 5, 5)
 		paper = Paper.new()
-		text = "    "
+		text = "food"
 		text_to_edit = "meow"
 		pencil.write(text, paper)
-		pencil.edit(text_to_edit, paper)
+		pencil.erase(text, paper, text_to_edit)
 		assert(paper.message == text_to_edit)
 	end
 end

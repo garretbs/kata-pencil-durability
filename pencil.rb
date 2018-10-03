@@ -25,7 +25,7 @@ class Pencil
 		end
 	end
 	
-	def erase(text, paper)
+	def erase(text, paper, edit_text = nil)
 		amount_to_erase = [@eraser_durability, text.length].min
 		@eraser_durability -= text.gsub("\s", "").length
 		text_to_erase = text[text.length-amount_to_erase, amount_to_erase]
@@ -37,6 +37,4 @@ class Pencil
 		@durability = @initial_durability
 	end
 	
-	def edit(paper, text)
-	end
 end
